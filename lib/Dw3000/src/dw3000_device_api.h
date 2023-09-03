@@ -862,6 +862,7 @@ int dwt_initialise(uint8_t mode);
  *
  * no return value
  */
+
 void dwt_setdwstate(uint8_t state);
 
 

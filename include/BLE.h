@@ -10,6 +10,7 @@
 #define NI_ACCESSORY_PROTOCOL_SPEC_MINOR_VERSION 0
 
 #define MAX_UWB_CONFIG_SIZE (64)
+// #define MAX_UWB_CONFIG_SIZE (21)
 #define ACCESSORY_CONFIGURATION_DATA_FIX_LEN (16)
 
 #ifndef SERVICE_UUID_NAMESPACE
@@ -100,10 +101,14 @@ class BLE
         bool isAdverstising();
         void handleRx(BLECharacteristic *pCharacteristic);
         void respondToPhone(BLEMessageIds::MessageId messageId);
-        void respondToPhone(BLEMessageIds::MessageId messageId, AccessoryConfigurationData *data, size_t size);
+        void sendAccessorryConfigData(BLEMessageIds::MessageId messageId, AccessoryConfigurationData *data);
         void handleInitiateUWB();
         void setUWB(NI_UWB *niUWB);
         void setupAccessoryConfigurationData(AccessoryConfigurationData *accessoryConfig, const dwt_config_t *UWBconfig);
+        void setupAccessoryConfigurationData(AccessoryConfigurationData *accessoryConfig, uint8_t *UWBconfig);
+        void handleConfigureAndStart(uint8_t *configData, size_t configDataLength);
+        void sendAccessoryUWBDidStart();
+        void handleUWBshouldStop();
 };
 
 class ServerCallbacks : public BLEServerCallbacks

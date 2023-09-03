@@ -1,0 +1,9 @@
+{
+    "name": "Qorvo/NIQ",
+    "version": "0.1",
+    "license": "Apache-2.0",
+    "keywords": "wireless, communication",
+    "description": "NIQ library",
+    "frameworks": "arduino",
+    "platforms": "*"
+}
